@@ -1,3 +1,4 @@
+import '@fontsource/m-plus-rounded-1c'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
