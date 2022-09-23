@@ -1,17 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
-import './App.css'
-import { Home } from '/@/pages/Home'
+import { router } from '/@/router'
 
 export const App = () => {
   return (
     <div className="h-screen text-primary break-words">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<h1>404</h1>} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </div>
   )
 }
