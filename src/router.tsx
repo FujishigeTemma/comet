@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { Home } from '/@/pages/Home'
 import { VolumeMetrics } from '/@/pages/VolumeMetrics'
+import { GazeTracker } from '/@/pages/GazeTracker'
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
   {
     path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/metrics',
     element: <Home />
+  },
+  {
+    path: '/tracker',
+    element: <GazeTracker />
   },
   {
     path: '*',

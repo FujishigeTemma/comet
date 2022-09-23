@@ -34,7 +34,7 @@ declare module 'webgazer' {
      * Starts all state related to webgazer -> dataLoop, video collection, click listener
      * If starting fails, call `onFail` param function.
      */
-    begin(onFail: () => void): Promise<WebGazer>
+    begin(onFail?: () => void): Promise<WebGazer>
     /**
      * Checks if webgazer has finished initializing after calling begin()
      * [20180729 JT] This seems like a bad idea for how this function should be implemented.
@@ -189,7 +189,7 @@ declare module 'webgazer' {
      * Requests an immediate prediction
      * @return prediction data object
      */
-    getCurrentPrediction(regIndex: number): GazeData
+    getCurrentPrediction(regIndex?: number): GazeData
     /**
      * Get the video element canvas that WebGazer uses internally on which to run its face tracker.
      * @return The current video element canvas
