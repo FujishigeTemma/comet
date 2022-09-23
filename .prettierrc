@@ -1,0 +1,30 @@
+{
+  "arrowParens": "avoid",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "filepath": "none",
+  "htmlWhitespaceSensitivity": "css",
+  "importOrder": [
+    "^(!/@)",
+    "^/@/lib/(.*)$",
+    "^/@/atoms/(.*)$",
+    "^/@/components/(.*)$",
+    "^/@/router/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "printWidth": 180,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "rangeStart": 0,
+  "requirePragma": false,
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false,
+  "vueIndentScriptAndStyle": false
+}
