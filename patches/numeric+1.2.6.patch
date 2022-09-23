@@ -1,0 +1,18 @@
+diff --git a/node_modules/numeric/numeric-1.2.6.js b/node_modules/numeric/numeric-1.2.6.js
+index 44edb9b..5165a77 100644
+--- a/node_modules/numeric/numeric-1.2.6.js
++++ b/node_modules/numeric/numeric-1.2.6.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ 
+ var numeric = (typeof exports === "undefined")?(function numeric() {}):(exports);
+-if(typeof global !== "undefined") { global.numeric = numeric; }
++if(typeof globalThis !== "undefined") { globalThis.numeric = numeric; }
+ 
+ numeric.version = "1.2.6";
+ 
+@@ -4421,4 +4421,3 @@ numeric.svd= function svd(A) {
+ 
+ 	return {U:u,S:q,V:v}
+ };
+-
