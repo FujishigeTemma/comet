@@ -12,9 +12,15 @@
     "fmt": "prettier --write ./src --cache"
   },
   "dependencies": {
+    "@fontsource/m-plus-rounded-1c": "^4.5.9",
+    "chart.js": "^3.9.1",
     "daisyui": "^2.31.0",
+    "luxon": "^3.0.3",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.1",
+    "recoil": "^0.7.5",
     "webgazer": "^3.0.0"
   },
   "devDependencies": {
