@@ -1,0 +1,96 @@
+diff --git a/node_modules/webgazer/src/index.mjs b/node_modules/webgazer/src/index.mjs
+index 8fad0ae..7d93ccd 100644
+--- a/node_modules/webgazer/src/index.mjs
++++ b/node_modules/webgazer/src/index.mjs
+@@ -3,14 +3,14 @@ import '@tensorflow/tfjs';
+ //import(/* webpackChunkName: 'pageA' */ './vendors~main.js')
+ 
+ import 'regression';
+-import params from './params';
+-import './dom_util';
++import params from './params.mjs';
++import './dom_util.mjs';
+ import localforage from 'localforage';
+-import TFFaceMesh from './facemesh';
+-import Reg from './ridgeReg';
+-import ridgeRegWeighted from './ridgeWeightedReg';
+-import ridgeRegThreaded from './ridgeRegThreaded';
+-import util from './util';
++import TFFaceMesh from './facemesh.mjs';
++import Reg from './ridgeReg.mjs';
++import ridgeRegWeighted from './ridgeWeightedReg.mjs';
++import ridgeRegThreaded from './ridgeRegThreaded.mjs';
++import util from './util.mjs';
+ 
+ const webgazer = {};
+ webgazer.tracker = {};
+diff --git a/node_modules/webgazer/src/ridgeReg.mjs b/node_modules/webgazer/src/ridgeReg.mjs
+index 63b6fa1..ee64e16 100644
+--- a/node_modules/webgazer/src/ridgeReg.mjs
++++ b/node_modules/webgazer/src/ridgeReg.mjs
+@@ -1,6 +1,6 @@
+-import util from './util';
+-import util_regression from './util_regression';
+-import params from './params';
++import util from './util.mjs';
++import util_regression from './util_regression.mjs';
++import params from './params.mjs';
+ 
+ const reg = {};
+ 
+diff --git a/node_modules/webgazer/src/ridgeRegThreaded.mjs b/node_modules/webgazer/src/ridgeRegThreaded.mjs
+index ca094e4..7d1d0e7 100644
+--- a/node_modules/webgazer/src/ridgeRegThreaded.mjs
++++ b/node_modules/webgazer/src/ridgeRegThreaded.mjs
+@@ -1,7 +1,7 @@
+-import util from './util';
++import util from './util.mjs';
+ import numeric from 'numeric';
+-import util_regression from './util_regression';
+-import params from './params';
++import util_regression from './util_regression.mjs';
++import params from './params.mjs';
+ 
+ const reg = {};
+ 
+diff --git a/node_modules/webgazer/src/ridgeWeightedReg.mjs b/node_modules/webgazer/src/ridgeWeightedReg.mjs
+index f2b88a4..1506ea0 100644
+--- a/node_modules/webgazer/src/ridgeWeightedReg.mjs
++++ b/node_modules/webgazer/src/ridgeWeightedReg.mjs
+@@ -1,6 +1,6 @@
+-import util from './util';
+-import util_regression from './util_regression';
+-import params from './params'
++import util from './util.mjs';
++import util_regression from './util_regression.mjs';
++import params from './params.mjs'
+ 
+ const reg = {};
+ 
+diff --git a/node_modules/webgazer/src/util.mjs b/node_modules/webgazer/src/util.mjs
+index eabab96..e45dedf 100644
+--- a/node_modules/webgazer/src/util.mjs
++++ b/node_modules/webgazer/src/util.mjs
+@@ -1,5 +1,5 @@
+-import mat from './mat';
+-import params from './params';
++import mat from './mat.mjs';
++import params from './params.mjs';
+ import numeric from 'numeric';
+ 
+ const util = {};
+diff --git a/node_modules/webgazer/src/util_regression.mjs b/node_modules/webgazer/src/util_regression.mjs
+index 906caea..ff3e68a 100644
+--- a/node_modules/webgazer/src/util_regression.mjs
++++ b/node_modules/webgazer/src/util_regression.mjs
+@@ -1,7 +1,7 @@
+-import util from './util';
++import util from './util.mjs';
+ import numeric from 'numeric';
+-import mat from './mat';
+-import params from './params';
++import mat from './mat.mjs';
++import params from './params.mjs';
+ 
+ const util_regression = {};
+ 
