@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { Home } from '/@/pages/Home'
+import { VolumeMetrics } from '/@/pages/VolumeMetrics'
 
 export const router = createBrowserRouter([
   {
@@ -8,8 +9,16 @@ export const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/comics/:',
-    element: <a />
+    path: '/comics/:comicId/volumes/metrics',
+    element: <VolumeMetrics />
+  },
+  {
+    path: '/comics/:comicId/volumes/:volumeId/pages/metrics',
+    element: <Home />
+  },
+  {
+    path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/metrics',
+    element: <Home />
   },
   {
     path: '*',
