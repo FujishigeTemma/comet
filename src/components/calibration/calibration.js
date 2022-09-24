@@ -28,7 +28,7 @@ export function PopUpInstruction() {
  * This function listens for button clicks on the html page
  * checks that all buttons have been clicked 5 times each, and then goes on to measuring the precision
  */
-export const Init = function () {
+export const CalibrationInit = function () {
   ClearCanvas()
   $('.Calibration').click(function () {
     // click event on the calibration buttons

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import webgazer from 'webgazer'
 
-import './calibration.css'
-import { ClearCalibration, PopUpInstruction, Init } from './calibration.js'
+import './calibration/calibration.css'
+import { ClearCalibration, PopUpInstruction, CalibrationInit } from './calibration/calibration.js'
 
 export const Gazer = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
@@ -39,7 +39,7 @@ export const Gazer = () => {
       canvas.style.position = 'fixed'
     }
     setup()
-    Init()
+    CalibrationInit()
     setInterval(async () => {
       webgazer.pause()
       await new Promise(resolve => requestAnimationFrame(resolve))
