@@ -6,12 +6,12 @@ import { ClearCalibration, PopUpInstruction, CalibrationInit } from './calibrati
 
 export const Gazer = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const run = useRef(false);
+  const run = useRef(false)
   useEffect(() => {
     if (run.current) {
       return
     }
-    run.current = true;
+    run.current = true
     webgazer
       .setRegression('ridge')
       .setGazeListener((data, elapsedTime: number) => {
@@ -40,12 +40,6 @@ export const Gazer = () => {
     }
     setup()
     CalibrationInit()
-    setInterval(async () => {
-      webgazer.pause()
-      await new Promise(resolve => requestAnimationFrame(resolve))
-      await new Promise(resolve => requestAnimationFrame(resolve))
-      webgazer.resume()
-    }, 250)
   }, [])
   function Restart() {
     webgazer.clearData()
