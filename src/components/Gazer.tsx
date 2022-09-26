@@ -6,12 +6,14 @@ import { ClearCalibration, PopUpInstruction, CalibrationInit } from './calibrati
 
 export const Gazer = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const run = useRef(false);
+  const run = useRef(false)
+  const dumpData = useRef<any>([])
+  const isEndCalibration = useRef(false)
   useEffect(() => {
     if (run.current) {
       return
     }
-    run.current = true;
+    run.current = true
     webgazer
       .setRegression('ridge')
       .setGazeListener((data, elapsedTime: number) => {
@@ -20,7 +22,12 @@ export const Gazer = () => {
         }
         let xprediction = data.x
         let yprediction = data.y
-        console.log(xprediction, yprediction, elapsedTime)
+        if (!isEndCalibration.current) {
+          console.log(xprediction, yprediction, elapsedTime, isEndCalibration)
+        }
+        if (isEndCalibration.current) {
+          dumpData.current = [...dumpData.current, { xprediction, yprediction, elapsedTime }]
+        }
       })
       .saveDataAcrossSessions(true)
       .begin()
@@ -39,13 +46,11 @@ export const Gazer = () => {
       canvas.style.position = 'fixed'
     }
     setup()
-    CalibrationInit()
-    setInterval(async () => {
-      webgazer.pause()
-      await new Promise(resolve => requestAnimationFrame(resolve))
-      await new Promise(resolve => requestAnimationFrame(resolve))
-      webgazer.resume()
-    }, 250)
+    CalibrationInit(() => {
+      setTimeout(() => {
+        isEndCalibration.current = true
+      }, 1000)
+    })
   }, [])
   function Restart() {
     webgazer.clearData()
@@ -53,6 +58,11 @@ export const Gazer = () => {
     setIsModalOpen(false)
     PopUpInstruction()
   }
+
+  function End() {
+    console.log(JSON.stringify(dumpData.current))
+  }
+  window.End = End
 
   return (
     <div>

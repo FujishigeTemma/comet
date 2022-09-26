@@ -1,4 +1,5 @@
 import $ from 'jquery'
+
 import './precision_calculation.js'
 import './precision_store_points.js'
 
@@ -28,7 +29,7 @@ export function PopUpInstruction() {
  * This function listens for button clicks on the html page
  * checks that all buttons have been clicked 5 times each, and then goes on to measuring the precision
  */
-export const CalibrationInit = function () {
+export const CalibrationInit = function (cb) {
   ClearCanvas()
   $('.Calibration').click(function () {
     // click event on the calibration buttons
@@ -70,6 +71,7 @@ export const CalibrationInit = function () {
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 
       ClearCanvas()
+      cb()
     }
   })
 }
