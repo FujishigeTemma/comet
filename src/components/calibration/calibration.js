@@ -1,5 +1,4 @@
 import $ from 'jquery'
-
 import './precision_calculation.js'
 import './precision_store_points.js'
 

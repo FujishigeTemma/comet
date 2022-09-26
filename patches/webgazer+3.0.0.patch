@@ -1,5 +1,5 @@
 diff --git a/node_modules/webgazer/src/index.mjs b/node_modules/webgazer/src/index.mjs
-index 8fad0ae..6834eed 100644
+index 8fad0ae..7d93ccd 100644
 --- a/node_modules/webgazer/src/index.mjs
 +++ b/node_modules/webgazer/src/index.mjs
 @@ -3,14 +3,14 @@ import '@tensorflow/tfjs';
@@ -24,21 +24,6 @@ index 8fad0ae..6834eed 100644
  
  const webgazer = {};
  webgazer.tracker = {};
-@@ -307,12 +307,9 @@ async function loop() {
-       var x = 0;
-       var y = 0;
-       var len = smoothingVals.length;
--      for (var d in smoothingVals.data) {
--        x += smoothingVals.get(d).x;
--        y += smoothingVals.get(d).y;
--      }
-+      var mean = smoothingVals.getMean();
- 
--      var pred = util.bound({'x':x/len, 'y':y/len});
-+      var pred = util.bound({'x':mean.x, 'y':mean.y});
- 
-       if (webgazer.params.storingPoints) {
-         drawCoordinates('blue',pred.x,pred.y); //draws the previous predictions
 diff --git a/node_modules/webgazer/src/ridgeReg.mjs b/node_modules/webgazer/src/ridgeReg.mjs
 index 63b6fa1..ee64e16 100644
 --- a/node_modules/webgazer/src/ridgeReg.mjs
@@ -54,7 +39,7 @@ index 63b6fa1..ee64e16 100644
  const reg = {};
  
 diff --git a/node_modules/webgazer/src/ridgeRegThreaded.mjs b/node_modules/webgazer/src/ridgeRegThreaded.mjs
-index ca094e4..dd94bcb 100644
+index ca094e4..7d1d0e7 100644
 --- a/node_modules/webgazer/src/ridgeRegThreaded.mjs
 +++ b/node_modules/webgazer/src/ridgeRegThreaded.mjs
 @@ -1,7 +1,7 @@
@@ -83,7 +68,7 @@ index f2b88a4..1506ea0 100644
  const reg = {};
  
 diff --git a/node_modules/webgazer/src/util.mjs b/node_modules/webgazer/src/util.mjs
-index eabab96..2b6637c 100644
+index eabab96..e45dedf 100644
 --- a/node_modules/webgazer/src/util.mjs
 +++ b/node_modules/webgazer/src/util.mjs
 @@ -1,5 +1,5 @@
@@ -94,23 +79,8 @@ index eabab96..2b6637c 100644
  import numeric from 'numeric';
  
  const util = {};
-@@ -92,6 +92,14 @@ util.DataWindow.prototype.get = function(ind) {
-     return this.data[this.getTrueIndex(ind)];
- };
- 
-+/**
-+ * Get the element at the ind position by wrapping around the DataWindow
-+ * @return {*}
-+ */
-+util.DataWindow.prototype.getMean = function() {
-+    return this.data[this.getTrueIndex(3)] * 0.5 + this.data[this.getTrueIndex(2)] * 0.25 + this.data[this.getTrueIndex(1)] * 0.125 + this.data[this.getTrueIndex(0)] * 0.125
-+}
-+
- /**
-  * Gets the true this.data array index given an index for a desired element
-  * @param {Number} ind - index of desired entry
 diff --git a/node_modules/webgazer/src/util_regression.mjs b/node_modules/webgazer/src/util_regression.mjs
-index 906caea..5f92eed 100644
+index 906caea..ff3e68a 100644
 --- a/node_modules/webgazer/src/util_regression.mjs
 +++ b/node_modules/webgazer/src/util_regression.mjs
 @@ -1,7 +1,7 @@
