@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 
+import { ComicComponent } from '../components/Comic/ComicComponent'
 import { useComicsMeta } from '/@/comicsMetaState'
 import { mustConvertToIntNumber } from '/@/utils'
 
@@ -18,15 +19,14 @@ export const Comic = () => {
   return (
     <div className="py-8">
       <Link to={`/comics`}>up</Link>
-      <p>{meta.name}</p>
-      <p>{meta.author}</p>
-      <ul>
+      <div className="flex gap-4">
+        <h2 className="font-bold text-xl">{meta.name}</h2>
+        <h2 className="mt-auto">{meta.author}</h2>
+      </div>
+      <ul className="grid grid-cols-8">
         {meta.volumes.map(volume => (
           <li key={volume.id}>
-            <Link to={`/comics/${meta.id}/volumes/${volume.id}`}>
-              <img src={`/comics-meta/${meta.id}/${volume.id}/${volume.cover}.jpg`} />
-              <p>{volume.name}</p>
-            </Link>
+            <ComicComponent comicsId={meta.id} comic={volume} />
           </li>
         ))}
       </ul>
