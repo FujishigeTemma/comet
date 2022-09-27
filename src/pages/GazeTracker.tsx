@@ -1,14 +1,20 @@
 import { Gazer } from '/@/components/Gazer'
 
-import p00009 from '/@/assets/p00009.jpg'
-import p00010 from '/@/assets/p00010.jpg'
+import { Link, useParams } from 'react-router-dom'
+
+import { getPageImgUrl, mustConvertToIntNumber } from '/@/utils'
 
 export const GazeTracker = () => {
+  const { comicId, volumeId, pageId } = useParams()
   return (
-    <div className="flex flex-wrap h-full w-full">
+    <div className="flex w-full h-screen">
       <Gazer />
-      <img className="object-contain lg:w-1/2 h-full" src={p00010} alt="10" />
-      <img className="object-contain lg:w-1/2 h-full" src={p00009} alt="9" />
+      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) - 1}`} className="w-1/2">
+        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2 - 1)} />
+      </Link>
+      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) + 1}`} className="w-1/2">
+        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2)} />
+      </Link>
     </div>
   )
 }

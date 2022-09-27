@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: '/tracker',
+    path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/tracker',
     element: <GazeTracker />
   },
   {
