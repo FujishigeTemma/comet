@@ -6,10 +6,12 @@ export const Page = () => {
   const { comicId, volumeId, pageId } = useParams()
 
   return (
-    <div className="py-8">
-      <Link to={`/comics/${comicId}/volumes/${volumeId}`}>up</Link>
-      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) + 1}`}>
-        <img src={getPageImgUrl(comicId, volumeId, pageId)} />
+    <div className="flex w-full h-screen">
+      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) - 1}`} className="w-1/2">
+        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2 - 1)} />
+      </Link>
+      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) + 1}`} className="w-1/2">
+        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2)} />
       </Link>
     </div>
   )
