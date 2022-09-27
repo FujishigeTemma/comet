@@ -22,7 +22,7 @@ export const Comics = () => {
   return (
     <div className="p-4 flex flex-col gap-4">
       <h1 className="text-xl font-bold">シリーズ一覧</h1>
-      <ul className="grid grid-cols-8">
+      <ul className="grid grid-cols-comic-cover">
         {list.map(series => (
           <li key={series.id}>
             <SeriesComponent series={series} />

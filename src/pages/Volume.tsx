@@ -37,7 +37,7 @@ export const Volume = () => {
   return (
     <div className="flex flex-col gap-4 p-4">
       <h1 className="font-bold text-xl">{meta.name}</h1>
-      <ul className="grid grid-cols-8">{pages}</ul>
+      <ul className="grid grid-cols-comic-cover">{pages}</ul>
     </div>
   )
 }

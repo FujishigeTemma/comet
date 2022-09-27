@@ -23,7 +23,7 @@ export const Comic = () => {
         <h2 className="font-bold text-xl">{meta.name}</h2>
         <h2 className="mt-auto">{meta.author}</h2>
       </div>
-      <ul className="grid grid-cols-8 gap-4">
+      <ul className="grid grid-cols-comic-cover gap-4">
         {meta.volumes.map(volume => (
           <li key={volume.id}>
             <ComicComponent comicsId={meta.id} comic={volume} />
