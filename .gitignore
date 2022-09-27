@@ -3,4 +3,4 @@ dist
 
 .eslintcache
 
-src/assets
+public/comics-meta
