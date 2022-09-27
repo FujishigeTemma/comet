@@ -46,7 +46,17 @@ export const Gazer = () => {
       canvas.style.position = 'fixed'
     }
     setup()
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.key === 'Enter') {
+        const a = document.createElement('a')
+        a.href = `data:text/json,${JSON.stringify(dumpData.current)}`
+        a.download = 'dump.json'
+        a.click()
+      }
+    })
     CalibrationInit(() => {
+      webgazer.params.storingPoints = false;
       setTimeout(() => {
         isEndCalibration.current = true
       }, 1000)
@@ -58,11 +68,6 @@ export const Gazer = () => {
     setIsModalOpen(false)
     PopUpInstruction()
   }
-
-  function End() {
-    console.log(JSON.stringify(dumpData.current))
-  }
-  window.End = End
 
   return (
     <div>
