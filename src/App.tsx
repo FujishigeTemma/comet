@@ -1,11 +1,15 @@
 import { RouterProvider } from 'react-router-dom'
 
+import { Sidebar } from './components/Nav/Sidebar'
 import { router } from '/@/router'
 
 export const App = () => {
   return (
     <div className="h-screen break-words font-mplus">
-      <RouterProvider router={router} />
+      <div className="flex">
+        <Sidebar />
+        <RouterProvider router={router} />
+      </div>
     </div>
   )
 }
