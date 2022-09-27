@@ -20,8 +20,7 @@ export const Comics = () => {
   const list = useComicsList()
 
   return (
-    <div className="py-8">
-      <Link to={`/`}>up</Link>
+    <div>
       <ul className="grid grid-cols-8">
         {list.map(series => (
           <li key={series.id}>

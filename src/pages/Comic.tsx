@@ -1,6 +1,7 @@
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import { ComicComponent } from '../components/Comic/ComicComponent'
+import { ComicComponent } from '/@/components/Comic/ComicComponent'
+
 import { useComicsMeta } from '/@/comicsMetaState'
 import { mustConvertToIntNumber } from '/@/utils'
 
@@ -17,8 +18,7 @@ export const Comic = () => {
   }
 
   return (
-    <div className="py-8">
-      <Link to={`/comics`}>up</Link>
+    <div>
       <div className="flex gap-4">
         <h2 className="font-bold text-xl">{meta.name}</h2>
         <h2 className="mt-auto">{meta.author}</h2>

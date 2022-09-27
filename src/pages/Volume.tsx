@@ -35,8 +35,7 @@ export const Volume = () => {
   }, [meta, comicId, volumeId])
 
   return (
-    <div className="py-8">
-      <Link to={`/comics/${comicId}`}>up</Link>
+    <div>
       <p>{meta.name}</p>
       <ul className="grid grid-cols-8">{pages}</ul>
     </div>
