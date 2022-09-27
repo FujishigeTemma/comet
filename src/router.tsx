@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { PageWrapper } from './pages/PageWrapper'
 import { Volume } from './pages/Volume'
 import { Comic } from '/@/pages/Comic'
 import { Comics } from '/@/pages/Comics'
@@ -10,35 +11,67 @@ import { VolumeMetrics } from '/@/pages/VolumeMetrics'
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: (
+      <PageWrapper>
+        <Home />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics',
-    element: <Comics />
+    element: (
+      <PageWrapper>
+        <Comics />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId',
-    element: <Comic />
+    element: (
+      <PageWrapper>
+        <Comic />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId/volumes/:volumeId',
-    element: <Volume />
+    element: (
+      <PageWrapper>
+        <Volume />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId/volumes/metrics',
-    element: <VolumeMetrics />
+    element: (
+      <PageWrapper>
+        <VolumeMetrics />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId/volumes/:volumeId/pages/metrics',
-    element: <Home />
+    element: (
+      <PageWrapper>
+        <Home />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId/volumes/:volumeId/pages/:pageId',
-    element: <Page />
+    element: (
+      <PageWrapper>
+        <Page />
+      </PageWrapper>
+    )
   },
   {
     path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/metrics',
-    element: <Home />
+    element: (
+      <PageWrapper>
+        <Home />
+      </PageWrapper>
+    )
   },
   {
     path: '*',

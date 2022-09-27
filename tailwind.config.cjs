@@ -7,7 +7,10 @@ module.exports = {
     extend: {
       fontFamily: {
         mplus: ['"M PLUS Rounded 1c"', 'sans-serif']
-      }
+      },
+      gridTemplateColumns: {
+        "comic-cover": "repeat(auto-fill, minmax(12rem, 1fr))",
+      },
     }
   },
   // eslint-disable-next-line no-undef
