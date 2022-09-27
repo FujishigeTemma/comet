@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { GazeTracker } from '/@/pages/GazeTracker'
 import { PageWrapper } from './pages/PageWrapper'
 import { Volume } from './pages/Volume'
 import { Comic } from '/@/pages/Comic'
 import { ComicMetrics } from '/@/pages/ComicMetrics'
 import { Comics } from '/@/pages/Comics'
+import { GazeTracker } from '/@/pages/GazeTracker'
 import { Home } from '/@/pages/Home'
 import { Page } from '/@/pages/Page'
 import { PageMetrics } from '/@/pages/PageMetrics'

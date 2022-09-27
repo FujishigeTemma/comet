@@ -63,7 +63,13 @@ export const PageMetrics = () => {
         </div>
       )}
       <div className="flex min-h-0 relative">
-        <PageComponent className="flex-1" comicId={mustConvertToIntNumber(comicId)} volumeId={mustConvertToIntNumber(volumeId)} pageId={mustConvertToIntNumber(pageId)} withLink={false} />
+        <PageComponent
+          className="flex-1"
+          comicId={mustConvertToIntNumber(comicId)}
+          volumeId={mustConvertToIntNumber(volumeId)}
+          pageId={mustConvertToIntNumber(pageId)}
+          withLink={false}
+        />
         <div>
           {showGaze &&
             gazeInfo.map((line, i) => (

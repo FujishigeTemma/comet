@@ -20,7 +20,7 @@ export const Gazer = () => {
         if (data == null) {
           return
         }
-        webgazer.util.bound(data);
+        webgazer.util.bound(data)
 
         let xprediction = data.x
         let yprediction = data.y
@@ -58,7 +58,7 @@ export const Gazer = () => {
       }
     })
     CalibrationInit(() => {
-      webgazer.params.storingPoints = false;
+      webgazer.params.storingPoints = false
       setTimeout(() => {
         isEndCalibration.current = true
       }, 1000)
