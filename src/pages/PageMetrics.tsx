@@ -66,7 +66,7 @@ export const PageMetrics = () => {
         <PageComponent className="flex-1" comicId={mustConvertToIntNumber(comicId)} volumeId={mustConvertToIntNumber(volumeId)} pageId={mustConvertToIntNumber(pageId)} withLink={false} />
         <div>
           {showGaze &&
-            gazeInfo.slice(3,4).map((line, i) => (
+            gazeInfo.map((line, i) => (
               <div key={i} className="absolute inset-0">
                 <svg viewBox="0 0 1476.92 1050" xmlns="http://www.w3.org/2000/svg">
                   <path d={gazeInfoToSvgPathD(line, showingTime)} fill="transparent" stroke="rgba(255,0,0,0.3)" strokeWidth="3" />
