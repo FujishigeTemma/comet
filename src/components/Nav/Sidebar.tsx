@@ -21,6 +21,16 @@ export const Sidebar = () => {
             <GoGraph />
             <div>metrics</div>
           </Link>
+        ) : volumeId ? (
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/metrics`} className="flex gap-2 items-center">
+            <GoGraph />
+            <div>metrics</div>
+          </Link>
+        ) : comicId ? (
+          <Link to={`/comics/${comicId}/metrics`} className="flex gap-2 items-center">
+            <GoGraph />
+            <div>metrics</div>
+          </Link>
         ) : null}
       </div>
     </div>
