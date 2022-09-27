@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 interface Props {
-  abandonmentRateComponent: React.ReactNode
-  readingTimeComponent: React.ReactNode
+  abandonmentRateComponent: ReactNode
+  readingTimeComponent: ReactNode
 }
 
 const SeriesMetricsType = {
