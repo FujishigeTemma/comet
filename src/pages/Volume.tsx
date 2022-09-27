@@ -25,8 +25,8 @@ export const Volume = () => {
     for (let i = 1; i <= meta.pages; i++) {
       list.push(
         <li key={i}>
-          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${i}`}>
-            <img src={getPageImgUrl(comicId, volumeId, i)} />
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${Math.ceil(i / 2)}`}>
+            <img src={getPageImgUrl(comicId, volumeId, i)} decoding={'async'} />
           </Link>
         </li>
       )
@@ -35,8 +35,8 @@ export const Volume = () => {
   }, [meta, comicId, volumeId])
 
   return (
-    <div>
-      <p>{meta.name}</p>
+    <div className="flex flex-col gap-4 p-4">
+      <h1 className="font-bold text-xl">{meta.name}</h1>
       <ul className="grid grid-cols-8">{pages}</ul>
     </div>
   )

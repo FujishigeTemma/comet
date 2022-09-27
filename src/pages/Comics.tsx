@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { SeriesComponent } from '/@/components/Comics/SeriesComponent'
 
 import { useComicsMeta } from '/@/comicsMetaState'
 
@@ -20,14 +20,12 @@ export const Comics = () => {
   const list = useComicsList()
 
   return (
-    <div>
+    <div className="p-4 flex flex-col gap-4">
+      <h1 className="text-xl font-bold">シリーズ一覧</h1>
       <ul className="grid grid-cols-8">
         {list.map(series => (
           <li key={series.id}>
-            <Link to={`/comics/${series.id}`}>
-              <img src={series.coverImgUrl} />
-              <p>{series.name}</p>
-            </Link>
+            <SeriesComponent series={series} />
           </li>
         ))}
       </ul>
