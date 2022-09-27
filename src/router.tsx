@@ -6,6 +6,7 @@ import { Comic } from '/@/pages/Comic'
 import { Comics } from '/@/pages/Comics'
 import { Home } from '/@/pages/Home'
 import { Page } from '/@/pages/Page'
+import { PageMetrics } from '/@/pages/PageMetrics'
 import { VolumeMetrics } from '/@/pages/VolumeMetrics'
 
 export const router = createBrowserRouter([
@@ -69,7 +70,7 @@ export const router = createBrowserRouter([
     path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/metrics',
     element: (
       <PageWrapper>
-        <Home />
+        <PageMetrics />
       </PageWrapper>
     )
   },
