@@ -14,15 +14,16 @@ const useVolumeMeta = (comicId: number, volumeId: number) => {
   if (comic === undefined) {
     throw new Error()
   }
-  return comic.volumes.find(volume => volume.id === volumeId)
+  const meta = comic.volumes.find(volume => volume.id === volumeId)
+  if (meta === undefined) {
+    throw new Error()
+  }
+  return meta
 }
 
 export const Thumbnails = ({ focused }: Props) => {
   const { comicId, volumeId } = useParams()
   const meta = useVolumeMeta(mustConvertToIntNumber(comicId), mustConvertToIntNumber(volumeId))
-  if (meta === undefined) {
-    throw new Error()
-  }
 
   const pages = useMemo(() => {
     const list = []
