@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import { GazeTracker } from '/@/pages/GazeTracker'
 import { PageWrapper } from './pages/PageWrapper'
 import { Volume } from './pages/Volume'
 import { Comic } from '/@/pages/Comic'
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
         <PageMetrics />
       </PageWrapper>
     )
+  },
+  {
+    path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/tracker',
+    element: <GazeTracker />
   },
   {
     path: '*',

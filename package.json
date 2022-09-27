@@ -9,13 +9,15 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx --cache ./src",
-    "fmt": "prettier --write ./src --cache"
+    "fmt": "prettier --write ./src --cache",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^4.5.9",
     "chart.js": "^3.9.1",
     "clsx": "^1.2.1",
     "daisyui": "^2.31.0",
+    "jquery": "^3.6.1",
     "luxon": "^3.0.3",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
