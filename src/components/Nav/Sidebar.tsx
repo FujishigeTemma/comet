@@ -4,7 +4,7 @@ import { WiMeteor } from 'react-icons/wi'
 import { Link, useParams } from 'react-router-dom'
 
 export const Sidebar = () => {
-  const { comicId } = useParams()
+  const { comicId, volumeId, pageId } = useParams()
   return (
     <div className="py-4 px-8">
       <Link to={'/'} className="flex gap-2 items-center">
@@ -16,8 +16,8 @@ export const Sidebar = () => {
           <TbBooks />
           <div>comics</div>
         </Link>
-        {comicId ? (
-          <Link to={`/comics/${comicId}/volumes/metrics`} className="flex gap-2 items-center">
+        {pageId ? (
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${pageId}/metrics`} className="flex gap-2 items-center">
             <GoGraph />
             <div>metrics</div>
           </Link>
