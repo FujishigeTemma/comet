@@ -6,15 +6,14 @@ import { getPageImgUrl, mustConvertToIntNumber } from '/@/utils'
 
 export const GazeTracker = () => {
   const { comicId, volumeId, pageId } = useParams()
+  const firstImg = <img className="h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2 - 1)} />
+  const secondImg = <img className="h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2)} />
+
   return (
     <div className="flex w-full h-screen">
       <Gazer />
-      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) - 1}`} className="w-1/2">
-        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2 - 1)} />
-      </Link>
-      <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${mustConvertToIntNumber(pageId) + 1}`} className="w-1/2">
-        <img className="w-full h-full object-contain" src={getPageImgUrl(comicId, volumeId, mustConvertToIntNumber(pageId) * 2)} />
-      </Link>
+      {secondImg}
+      {firstImg}
     </div>
   )
 }
