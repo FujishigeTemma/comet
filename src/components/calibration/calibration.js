@@ -20,7 +20,6 @@ function ClearCanvas() {
  */
 export function PopUpInstruction() {
   ClearCanvas()
-  const isConfirm = confirm('Please click on each of the 9 points on the screen. You must click on each point 5 times till it goes yellow. This will calibrate your eye movements.')
   ShowCalibrationPoint()
 }
 

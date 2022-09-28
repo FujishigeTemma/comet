@@ -90,17 +90,15 @@ export const Gazer = () => {
 
       {isModalOpen && (
         <div id="helpModal" className={`modal ${isModalOpen ? 'modal-open' : ''}`} role="dialog">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-body"></div>
-              <div className="modal-footer">
-                <button id="closeBtn" type="button" className="btn btn-default" data-dismiss="modal" onClick={() => setIsModalOpen(false)}>
-                  Close & load saved model{' '}
-                </button>
-                <button type="button" id="start_calibration" className="btn btn-primary" data-dismiss="modal" onClick={Restart}>
-                  Calibrate
-                </button>
-              </div>
+          <div className="modal-box">
+            <div className="modal-body">
+              あなたの目線をうまくとらえられるようにキャリブレーションを行います。
+              画面外周と中央に表示される赤いボタンが表示されます。それぞれを5回クリックしたのち5秒間見つめてください。
+            </div>
+            <div className="modal-action">
+              <button type="button" id="start_calibration" className="btn btn-primary" data-dismiss="modal" onClick={Restart}>
+                キャリブレーションを開始する
+              </button>
             </div>
           </div>
         </div>
