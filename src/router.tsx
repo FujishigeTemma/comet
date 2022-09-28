@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { PageWrapper } from './pages/PageWrapper'
@@ -5,10 +6,11 @@ import { Volume } from './pages/Volume'
 import { Comic } from '/@/pages/Comic'
 import { ComicMetrics } from '/@/pages/ComicMetrics'
 import { Comics } from '/@/pages/Comics'
-import { GazeTracker } from '/@/pages/GazeTracker'
 import { Page } from '/@/pages/Page'
 import { PageMetrics } from '/@/pages/PageMetrics'
 import { VolumeMetrics } from '/@/pages/VolumeMetrics'
+
+const GazeTracker = lazy(() => import('/@/pages/GazeTracker'))
 
 export const router = createBrowserRouter([
   {
