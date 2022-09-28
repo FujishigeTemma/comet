@@ -1,34 +1,33 @@
 import { GoGraph } from 'react-icons/go'
 import { TbBooks } from 'react-icons/tb'
-import { WiMeteor } from 'react-icons/wi'
 import { Link, useParams } from 'react-router-dom'
 
 export const Sidebar = () => {
   const { comicId, volumeId, pageId } = useParams()
   return (
-    <div className="py-4 px-8 w-48">
+    <div className="py-4 px-8 w-64">
       <Link to={'/'} className="flex gap-2 items-center">
-        <WiMeteor size={24} />
-        <div className="text-xl font-bold">comet</div>
+        <img src="/assets/logo.png" className="w-12" />
+        <div className="text-3xl font-bold text-purple-900">comet</div>
       </Link>
-      <div className="p-2 flex flex-col gap-2">
-        <Link to={'/comics'} className="flex gap-2 items-center">
-          <TbBooks />
+      <div className="mt-8 pl-2 flex flex-col gap-2">
+        <Link to={'/comics'} className="flex items-center text-lg">
+          <TbBooks size={28} className="ml-[0px] mr-[10px]" />
           <div>comics</div>
         </Link>
         {pageId ? (
-          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${pageId}/metrics`} className="flex gap-2 items-center">
-            <GoGraph />
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${pageId}/metrics`} className="flex items-center text-lg">
+            <GoGraph size={28} className="ml-[2px] mr-[8px]" />
             <div>metrics</div>
           </Link>
         ) : volumeId ? (
-          <Link to={`/comics/${comicId}/volumes/${volumeId}/metrics`} className="flex gap-2 items-center">
-            <GoGraph />
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/metrics`} className="flex items-center text-lg">
+            <GoGraph size={28} className="ml-[2px] mr-[8px]" />
             <div>metrics</div>
           </Link>
         ) : comicId ? (
-          <Link to={`/comics/${comicId}/metrics`} className="flex gap-2 items-center">
-            <GoGraph />
+          <Link to={`/comics/${comicId}/metrics`} className="flex items-center text-lg">
+            <GoGraph size={28} className="ml-[2px] mr-[8px]" />
             <div>metrics</div>
           </Link>
         ) : null}

@@ -37,9 +37,13 @@ export const Thumbnails = ({ focused }: Props) => {
         </li>
       )
     }
-    location.hash = 'page' + focused
+
     return list
   }, [meta, comicId, volumeId, focused])
+
+  useEffect(() => {
+    location.hash = 'page' + (focused ?? 1)
+  }, [focused])
 
   return <ol className="carousel carousel-center">{pages}</ol>
 }
