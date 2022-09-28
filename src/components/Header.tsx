@@ -11,7 +11,7 @@ interface Props {
 
 export const Header = ({ meta, volumeId }: Props) => {
   const nestedRoutes = useMemo(() => {
-    const routes = [{ component: <h1 className="text-xl ">シリーズ一覧</h1>, path: '/comics' }]
+    const routes = [{ component: <h1 className="text-xl font-bold">シリーズ一覧</h1>, path: '/comics' }]
     if (meta !== undefined) {
       routes.push({
         component: <h1 className="font-bold text-xl">{meta.name}</h1>,
