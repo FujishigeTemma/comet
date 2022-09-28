@@ -20,7 +20,7 @@ export const Gazer = () => {
         if (data == null) {
           return
         }
-        webgazer.util.bound(data);
+        webgazer.util.bound(data)
 
         let xprediction = data.x
         let yprediction = data.y

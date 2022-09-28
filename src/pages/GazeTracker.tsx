@@ -1,6 +1,6 @@
-import { Gazer } from '/@/components/Gazer'
+import { useParams } from 'react-router-dom'
 
-import { Link, useParams } from 'react-router-dom'
+import { Gazer } from '/@/components/Gazer'
 
 import { getPageImgUrl, mustConvertToIntNumber } from '/@/utils'
 
