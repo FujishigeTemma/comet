@@ -1,9 +1,10 @@
 import { ActiveElement, BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartEvent, ChartOptions, LinearScale, PointElement, Title, Tooltip } from 'chart.js'
-import { useState } from 'react'
-import { Bar } from 'react-chartjs-2'
+import { useMemo, useState } from 'react'
+import { Chart } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
 
 import { Thumbnails2 } from '/@/components/VolumeMetrics/VolumeThumbnails'
+
 import { useComicsData } from '/@/comicsDataState'
 import { mustConvertToIntNumber } from '/@/utils'
 
@@ -25,6 +26,7 @@ const useVolumeData = (comicId: number, volumeId: number) => {
 export const VolumeReadingTimeMetrics = () => {
   const { comicId, volumeId } = useParams()
   const { readingTime: rawdata } = useVolumeData(mustConvertToIntNumber(comicId), mustConvertToIntNumber(volumeId))
+  const average = useMemo(() => rawdata.reduce((acc, val) => acc + val, 0) / rawdata.length, [rawdata])
 
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
 
@@ -52,14 +54,37 @@ export const VolumeReadingTimeMetrics = () => {
     labels: pages,
     datasets: [
       {
-        data: rawdata
+        type: 'bar' as const,
+        data: rawdata,
+        borderColor: 'rgba(100, 25, 230, 0.2)',
+        backgroundColor: 'rgba(100, 25, 230, 0.2)'
+      },
+      {
+        // @ts-expect-error 型が合わないけど一旦無視
+        type: 'line' as const,
+        data: rawdata.map(() => average),
+        borderColor: 'rgba(217, 38, 169, 0.7)',
+        backgroundColor: 'rgba(217, 38, 169, 0.7)',
+        animation: false,
+        pointRadius: 0,
+        label: '平均値'
+      },
+      {
+        // @ts-expect-error 型が合わないけど一旦無視
+        type: 'line' as const,
+        data: rawdata.map(() => 24),
+        borderColor: 'rgba(31, 178, 166, 0.7)',
+        backgroundColor: 'rgba(31, 178, 166, 0.7)',
+        animation: false,
+        pointRadius: 0,
+        label: '推奨最大値'
       }
     ]
   }
 
   return (
     <div>
-      <Bar data={data} options={options} />
+      <Chart type="bar" data={data} options={options} />
       <Thumbnails2 focused={focusedIndex} />
     </div>
   )

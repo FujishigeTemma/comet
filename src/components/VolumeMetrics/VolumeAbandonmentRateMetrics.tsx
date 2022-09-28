@@ -1,13 +1,27 @@
-import { ActiveElement, BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartEvent, ChartOptions, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js'
+import {
+  ActiveElement,
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  ChartData,
+  ChartEvent,
+  ChartOptions,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Filler
+} from 'chart.js'
 import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
 
-import { Thumbnails, Thumbnails2 } from './VolumeThumbnails'
+import { Thumbnails2 } from './VolumeThumbnails'
 import { useComicsData } from '/@/comicsDataState'
 import { mustConvertToIntNumber } from '/@/utils'
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, BarElement, PointElement, Title, Tooltip)
+ChartJS.register(LineElement, CategoryScale, LinearScale, BarElement, PointElement, Title, Tooltip, Filler)
 
 const useVolumeData = (comicId: number, volumeId: number) => {
   const list = useComicsData()
@@ -57,7 +71,9 @@ export const VolumeAbandonmentRateMetrics = () => {
     labels: pages,
     datasets: [
       {
-        data: rawdata
+        data: rawdata,
+        fill: true,
+        backgroundColor: 'rgba(100, 25, 230, 0.2)'
       }
     ]
   }
