@@ -58,7 +58,8 @@ export const VolumeAbandonmentRateMetrics = () => {
     },
     scales: {
       yAxis: {
-        min: 0
+        min: 0,
+        max: 100
       }
     },
     onHover,
