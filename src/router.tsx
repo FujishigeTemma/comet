@@ -4,7 +4,6 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { PageWrapper } from './pages/PageWrapper'
 import { Volume } from './pages/Volume'
 import { Comic } from '/@/pages/Comic'
-import { ComicMetrics } from '/@/pages/ComicMetrics'
 import { Comics } from '/@/pages/Comics'
 import { Page } from '/@/pages/Page'
 import { PageHeatmap } from '/@/pages/PageHeatmap'
@@ -39,14 +38,6 @@ export const router = createBrowserRouter([
     element: (
       <PageWrapper>
         <Volume />
-      </PageWrapper>
-    )
-  },
-  {
-    path: '/comics/:comicId/metrics',
-    element: (
-      <PageWrapper>
-        <ComicMetrics />
       </PageWrapper>
     )
   },

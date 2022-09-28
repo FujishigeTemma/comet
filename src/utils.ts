@@ -1,8 +1,10 @@
 export const mustConvertToIntNumber = (param: string | undefined) => {
   if (param === undefined) {
+    console.log(1)
     throw new Error()
   }
   if (!/^\d+$/.test(param)) {
+    console.log(2)
     throw new Error()
   }
   return parseInt(param, 10)

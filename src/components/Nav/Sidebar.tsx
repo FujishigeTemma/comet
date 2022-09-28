@@ -25,11 +25,6 @@ export const Sidebar = () => {
             <GoGraph size={28} className="ml-[2px] mr-[8px]" />
             <div>metrics</div>
           </Link>
-        ) : comicId ? (
-          <Link to={`/comics/${comicId}/metrics`} className="flex items-center text-lg">
-            <GoGraph size={28} className="ml-[2px] mr-[8px]" />
-            <div>metrics</div>
-          </Link>
         ) : null}
         {comicId && volumeId && pageId && (
           <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${pageId}/heatmap`} className="flex items-center text-lg">
