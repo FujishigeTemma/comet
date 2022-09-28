@@ -83,7 +83,7 @@ export const Thumbnails2 = ({ focused }: Props) => {
     <ul className="relative w-full h-48 overflow-hidden py-8" ref={container}>
       {tuples.map((tuple, i) => {
         const [src, link] = tuple
-        const isFocus = focused === i + 1
+        const isFocus = focused === i
         return <ThumbnailsContent key={src} src={src} link={link} isFocus={isFocus} index={i} containerWidth={width} scroll={scroll} scrollTo={scrollTo} />
       })}
     </ul>

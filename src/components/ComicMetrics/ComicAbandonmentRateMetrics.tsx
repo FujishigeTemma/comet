@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
 
+import { Thumbnails2 } from '../VolumeMetrics/VolumeThumbnails'
 import { Thumbnails } from './ComicThumbnails'
 import { useComicsData } from '/@/comicsDataState'
 import { mustConvertToIntNumber } from '/@/utils'
@@ -32,7 +33,7 @@ export const ComicAbandonmentRateMetrics = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     setFocusedIndex(active[0]!.index)
   }
-  const options: ChartOptions = {
+  const options: ChartOptions<'line'> = {
     responsive: true,
     interaction: {
       mode: 'index',
@@ -56,7 +57,7 @@ export const ComicAbandonmentRateMetrics = () => {
   return (
     <div>
       <Line data={data} options={options} />
-      <Thumbnails focused={focusedIndex} />
+      <Thumbnails2 focused={focusedIndex} />
     </div>
   )
 }

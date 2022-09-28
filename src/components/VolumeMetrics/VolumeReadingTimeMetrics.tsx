@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
 
-import { Thumbnails } from './VolumeThumbnails'
+import { Thumbnails, Thumbnails2 } from './VolumeThumbnails'
 import { useComicsData } from '/@/comicsDataState'
 import { mustConvertToIntNumber } from '/@/utils'
 
@@ -36,7 +36,7 @@ export const VolumeReadingTimeMetrics = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     setFocusedIndex(active[0]!.index)
   }
-  const options: ChartOptions = {
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     interaction: {
       mode: 'index',
@@ -60,7 +60,7 @@ export const VolumeReadingTimeMetrics = () => {
   return (
     <div>
       <Bar data={data} options={options} />
-      <Thumbnails focused={focusedIndex} />
+      <Thumbnails2 focused={focusedIndex} />
     </div>
   )
 }

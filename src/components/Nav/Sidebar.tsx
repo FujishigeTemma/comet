@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 export const Sidebar = () => {
   const { comicId, volumeId, pageId } = useParams()
   return (
-    <div className="py-4 px-8">
+    <div className="py-4 px-8 w-48">
       <Link to={'/'} className="flex gap-2 items-center">
         <WiMeteor size={24} />
         <div className="text-xl font-bold">comet</div>
