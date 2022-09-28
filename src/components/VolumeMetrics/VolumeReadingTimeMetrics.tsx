@@ -44,6 +44,11 @@ export const VolumeReadingTimeMetrics = () => {
       mode: 'index',
       intersect: false
     },
+    scales: {
+      yaxis: {
+        max: rawdata.reduce((prev, cur, acc) => (prev > cur ? prev : cur), 0) + 10
+      }
+    },
     onHover,
     onClick
   }
