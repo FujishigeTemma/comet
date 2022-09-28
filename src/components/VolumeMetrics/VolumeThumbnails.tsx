@@ -105,34 +105,51 @@ const ThumbnailsContent = ({ src, link, isFocus, index, containerWidth, scroll, 
   const cn = {
     absolute: true,
     transition: true,
-    shadow: isFocus,
-    'z-10': isFocus,
+    shadow: true,
+    'shadow-lg': isFocus,
+    'z-20': isFocus,
     'scale-125': isFocus
+  }
+
+  const cnOverlay = {
+    absolute: true,
+    transition: true,
+    'bg-gray-500': true,
+    'bg-opacity-10': true,
+    'z-10': true,
+    'inset-0': true,
+    'opacity-0': isFocus,
+    'opacity-100': !isFocus
   }
 
   useEffect(() => {
     const left = 2 * index * 16
     const right = left + width
-    const SCROLL_PADDING = 64
+    const SCROLL_PADDING = 32
+    const halfContainer = Math.floor(containerWidth / 2)
 
     if (isFocus) {
-      // container が左にはみ出てる
-      if (left < scroll + SCROLL_PADDING) {
-        scrollTo(left - SCROLL_PADDING)
-      }
+      // // container が左にはみ出てる
+      // if (left < scroll + SCROLL_PADDING) {
+      //   scrollTo(left - SCROLL_PADDING)
+      // }
 
-      // container が右にはみ出てる
-      if (right > scroll + containerWidth - SCROLL_PADDING) {
-        scrollTo(left - containerWidth + width + SCROLL_PADDING)
-      }
+      // // container が右にはみ出てる
+      // if (right > scroll + containerWidth - SCROLL_PADDING) {
+      //   scrollTo(left - containerWidth + width + SCROLL_PADDING)
+      // }
+      scrollTo(left - halfContainer + Math.floor(width / 2))
     }
-  }, [isFocus, containerWidth, scroll, scrollTo, index, width])
+  }, [isFocus, containerWidth, /*scroll, */ scrollTo, index, width])
 
   return (
     <li className={classNames(cn)} style={{ left: `${2 * index * 16}px`, width: `${width}px` }}>
-      <Link to={link}>
-        <img src={src} />
-      </Link>
+      <div className="relative">
+        <Link to={link}>
+          <img src={src} />
+        </Link>
+      </div>
+      <div className={classNames(cnOverlay)}></div>
     </li>
   )
 }
