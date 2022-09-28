@@ -128,8 +128,8 @@ const ThumbnailsContent = ({ src, link, isFocus, index, containerWidth, scroll, 
 
   useEffect(() => {
     const left = 2 * index * 16
-    const right = left + width
-    const SCROLL_PADDING = 32
+    // const right = left + width
+    // const SCROLL_PADDING = 32
     const halfContainer = Math.floor(containerWidth / 2)
 
     if (isFocus) {

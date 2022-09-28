@@ -20,6 +20,7 @@ export const Gazer = () => {
         if (data == null) {
           return
         }
+        // @ts-expect-error 型付けしてない
         webgazer.util.bound(data)
 
         const xprediction = data.x
@@ -42,7 +43,7 @@ export const Gazer = () => {
     //Set up the webgazer video feedback.
     const setup = function () {
       //Set up the main canvas. The main canvas is used to calibrate the webgazer.
-      const canvas = document.getElementById('plotting_canvas')!
+      const canvas = document.getElementById('plotting_canvas') as HTMLCanvasElement
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       canvas.style.position = 'fixed'

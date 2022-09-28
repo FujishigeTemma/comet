@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
 
-import { Thumbnails, Thumbnails2 } from './VolumeThumbnails'
+import { Thumbnails2 } from '/@/components/VolumeMetrics/VolumeThumbnails'
 import { useComicsData } from '/@/comicsDataState'
 import { mustConvertToIntNumber } from '/@/utils'
 
