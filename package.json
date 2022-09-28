@@ -15,6 +15,7 @@
   "dependencies": {
     "@fontsource/m-plus-rounded-1c": "^4.5.9",
     "chart.js": "^3.9.1",
+    "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "daisyui": "^2.31.0",
     "jquery": "^3.6.1",
