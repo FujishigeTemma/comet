@@ -58,7 +58,7 @@ export const Gazer = () => {
       }
     })
     CalibrationInit(() => {
-      webgazer.params.storingPoints = false
+      webgazer.removeMouseEventListeners();
       setTimeout(() => {
         isEndCalibration.current = true
       }, 1000)
