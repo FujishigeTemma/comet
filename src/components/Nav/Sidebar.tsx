@@ -1,4 +1,4 @@
-import { GoGraph } from 'react-icons/go'
+import { GoFlame, GoGraph } from 'react-icons/go'
 import { TbBooks } from 'react-icons/tb'
 import { Link, useParams } from 'react-router-dom'
 
@@ -31,6 +31,12 @@ export const Sidebar = () => {
             <div>metrics</div>
           </Link>
         ) : null}
+        {comicId && volumeId && pageId && (
+          <Link to={`/comics/${comicId}/volumes/${volumeId}/pages/${pageId}/heatmap`} className="flex items-center text-lg">
+            <GoFlame size={28} className="ml-[2px] mr-[8px]" />
+            <div>heatmap</div>
+          </Link>
+        )}
       </div>
     </div>
   )
