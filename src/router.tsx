@@ -7,6 +7,7 @@ import { ComicMetrics } from '/@/pages/ComicMetrics'
 import { Comics } from '/@/pages/Comics'
 import { GazeTracker } from '/@/pages/GazeTracker'
 import { Page } from '/@/pages/Page'
+import { PageHeatmap } from '/@/pages/PageHeatmap'
 import { PageMetrics } from '/@/pages/PageMetrics'
 import { VolumeMetrics } from '/@/pages/VolumeMetrics'
 
@@ -68,6 +69,14 @@ export const router = createBrowserRouter([
     element: (
       <PageWrapper>
         <PageMetrics />
+      </PageWrapper>
+    )
+  },
+  {
+    path: '/comics/:comicId/volumes/:volumeId/pages/:pageId/heatmap',
+    element: (
+      <PageWrapper>
+        <PageHeatmap />
       </PageWrapper>
     )
   },
