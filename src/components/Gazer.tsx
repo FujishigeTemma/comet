@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import webgazer from 'webgazer'
 
 import './calibration/calibration.css'
-import { ClearCalibration, PopUpInstruction, CalibrationInit } from './calibration/calibration.js'
+import { CalibrationInit, ClearCalibration, PopUpInstruction } from './calibration/calibration.js'
 
 export const Gazer = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
@@ -20,10 +20,11 @@ export const Gazer = () => {
         if (data == null) {
           return
         }
+        // @ts-expect-error 型付けしてない
         webgazer.util.bound(data)
 
-        let xprediction = data.x
-        let yprediction = data.y
+        const xprediction = data.x
+        const yprediction = data.y
         if (!isEndCalibration.current) {
           console.log(xprediction, yprediction, elapsedTime, isEndCalibration)
         }
@@ -40,9 +41,9 @@ export const Gazer = () => {
       .applyKalmanFilter(true) /* Kalman Filter defaults to on. Can be toggled by user. */
 
     //Set up the webgazer video feedback.
-    var setup = function () {
+    const setup = function () {
       //Set up the main canvas. The main canvas is used to calibrate the webgazer.
-      var canvas = document.getElementById('plotting_canvas')!
+      const canvas = document.getElementById('plotting_canvas') as HTMLCanvasElement
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       canvas.style.position = 'fixed'
@@ -58,7 +59,7 @@ export const Gazer = () => {
       }
     })
     CalibrationInit(() => {
-      webgazer.removeMouseEventListeners();
+      webgazer.removeMouseEventListeners()
       setTimeout(() => {
         isEndCalibration.current = true
       }, 1000)

@@ -4,7 +4,7 @@ import { router } from '/@/router'
 
 export const App = () => {
   return (
-    <div className="h-screen break-words font-mplus">
+    <div className="h-screen break-words font-mplus text-neutral">
       <RouterProvider router={router} />
     </div>
   )

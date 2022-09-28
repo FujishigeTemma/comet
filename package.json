@@ -18,6 +18,7 @@
     "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "daisyui": "^2.31.0",
+    "heatmap-ts": "^0.0.5",
     "jquery": "^3.6.1",
     "luxon": "^3.0.3",
     "react": "^18.2.0",
@@ -26,6 +27,7 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.1",
     "recoil": "^0.7.5",
+    "throttle-debounce": "^5.0.0",
     "webgazer": "^3.0.0"
   },
   "devDependencies": {
@@ -34,6 +36,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/tailwindcss": "^3.1.0",
+    "@types/throttle-debounce": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",

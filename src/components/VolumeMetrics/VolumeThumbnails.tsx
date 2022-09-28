@@ -37,9 +37,13 @@ export const Thumbnails = ({ focused }: Props) => {
         </li>
       )
     }
-    location.hash = 'page' + focused
+
     return list
   }, [meta, comicId, volumeId, focused])
+
+  useEffect(() => {
+    location.hash = 'page' + (focused ?? 1)
+  }, [focused])
 
   return <ol className="carousel carousel-center">{pages}</ol>
 }
@@ -124,8 +128,8 @@ const ThumbnailsContent = ({ src, link, isFocus, index, containerWidth, scroll, 
 
   useEffect(() => {
     const left = 2 * index * 16
-    const right = left + width
-    const SCROLL_PADDING = 32
+    // const right = left + width
+    // const SCROLL_PADDING = 32
     const halfContainer = Math.floor(containerWidth / 2)
 
     if (isFocus) {
